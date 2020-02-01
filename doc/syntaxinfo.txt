@@ -1,0 +1,146 @@
+*nvim-syntax-info.txt* A plugin that displays
+                     syntax information (highlight-groups) with
+                     Neovim virtual text.
+
+Author: wadackel <https://github.com/wadackel>
+
+CONTENTS     *nvim-syntax-info-contents*
+
+Introduction |nvim-syntax-info-introduction|
+Install      |nvim-syntax-info-install|
+Commands     |nvim-syntax-info-commands|
+Mappings     |nvim-syntax-info-mappings|
+Variables    |nvim-syntax-info-variables|
+Highlights   |nvim-syntax-info-highlights|
+License      |nvim-syntax-info-license|
+
+
+==============================================================================
+Introduction                                   *nvim-syntax-info-introduction*
+
+nvim-syntax-info is a plugin that displays syntax information
+with |nvim_buf_set_virtual_text|.
+
+Displays the highlight group at the cursor position as shown below.
+>
+  return synIDattr(a:synid, 'name') base=vimNotFunc, linked=Statement
+     |__ cursor here.               |_______________________________|
+                                               virtual text
+<
+It will help you customize your colorscheme and make your own colorscheme!
+
+
+==============================================================================
+Install                                             *nvim-syntax-info-install*
+
+Follow the package manager installation method you are using.
+Here is an example with vim-plug.
+>
+  Plug 'wadackel/nvim-syntax-info'
+<
+vim-plug: https://github.com/junegunn/vim-plug
+
+
+==============================================================================
+Commands                                           *nvim-syntax-info-commands*
+
+:SyntaxInfo                                                       *SyntaxInfo*
+
+  Displays syntax information (virtual text) at the cursor position.
+
+:SyntaxInfoClear                                             *SyntaxInfoClear*
+
+  Clear syntax information (virtual text) at the cursor position.
+
+:SyntaxInfoEnable                                           *SyntaxInfoEnable*
+
+  Syntax information is displayed automatically when the cursor is moved.
+
+:SyntaxInfoDisable                                         *SyntaxInfoDisable*
+
+  Disables display with cursor movement.
+
+:SyntaxInfoToggle                                           *SyntaxInfoToggle*
+
+  Switch whether to display syntax information by moving the cursor.
+
+==============================================================================
+Mappings                                           *nvim-syntax-info-mappings*
+
+It does not provide a default mapping.
+Let's set your mapping using the following keys.
+
+<Plug>(syntax-info)                                      *<Plug>(syntax-info)*
+<Plug>(syntax-info-clear)                          *<Plug>(syntax-info-clear)*
+<Plug>(syntax-info-enable)                        *<Plug>(syntax-info-enable)*
+<Plug>(syntax-info-disable)                      *<Plug>(syntax-info-disable)*
+<Plug>(syntax-info-toggle)                        *<Plug>(syntax-info-toggle)*
+
+For example:
+>
+  nmap <silent> <Space>si <Plug>(syntax-info-toggle)
+<
+
+==============================================================================
+Variables                                         *nvim-syntax-info-variables*
+
+g:syntaxinfo_format                                      *g:syntaxinfo_format*
+
+  Type   : |String|
+  Default: `"base=%base%, linked=%linked%"`
+
+  You can specify the content to be displayed in virtual text in
+  the format of `%KEY_NAME%`.
+
+  | Key    | Description                            |
+  | ------ | -------------------------------------- |
+  | base   | Directly applied highlight group name. |
+  | linked | Linked highlight group name.           |
+
+g:syntaxinfo_delay                                        *g:syntaxinfo_delay*
+
+  Type   : |Number|
+  Default: `250`
+
+  Specify the delay millisecond when displaying by moving the cursor.
+
+
+==============================================================================
+Highlights                                       *nvim-syntax-info-highlights*
+
+SyntaxInfo                                                        *SyntaxInfo*
+
+  Default: `highlight link SyntaxInfo Comment`
+
+  The highlight for syntax infomation in virtual text.
+
+
+==============================================================================
+LICENSE                                             *nvim-syntax-info-license*
+
+MIT License
+
+Copyright (c) 2020 wadackel
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to
+whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+
+
+==============================================================================
+vim:tw=78:colorcolumn=78:ts=8:ft=help:norl:et:fen:fdl=0:
