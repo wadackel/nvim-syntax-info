@@ -108,7 +108,7 @@ g:syntaxinfo_delay                                        *g:syntaxinfo_delay*
 ==============================================================================
 Highlights                                       *nvim-syntax-info-highlights*
 
-SyntaxInfo                                                        *SyntaxInfo*
+SyntaxInfo                                                     *hl-SyntaxInfo*
 
   Default: `highlight link SyntaxInfo Comment`
 
